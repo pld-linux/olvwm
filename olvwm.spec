@@ -12,7 +12,7 @@ Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 Source1:	%{name}-config.examples.tar.bz2
-Source2:        %{name}.desktop
+Source2:	%{name}.desktop
 Patch0:		%{name}-pld.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	bison

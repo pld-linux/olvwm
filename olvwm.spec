@@ -13,6 +13,7 @@ URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	XFree86-devel
 BuildRequires:	flex
+BuildRequires:	imake
 BuildRequires:	xview
 BuildRequires:	xview-devel
 BuildRequires:	bison

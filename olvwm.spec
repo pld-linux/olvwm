@@ -2,7 +2,7 @@ Summary:	OpenLook Virtual Window Manager
 Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
 Name:		olvwm
 Version:	4.2n
-Release:	1
+Release:	2
 License:	some BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
@@ -11,9 +11,15 @@ Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
+Source1:	%{name}-config.examples.tar.bz2
+Patch0:		%{name}-pld.patch
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	olgx
+BuildRequires: XFree86-devel
+BuildRequires: flex
+BuildRequires: xview
+BuildRequires: xview-devel
+BuildRequires: bison
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -41,9 +47,11 @@ weterani chêtnie pozostaj± przy olvwm jako ¿e przypomina im stare, dobre
 czasy, kiedy byli m³odymi hackerami...
 
 %prep
-%setup -q -n %{name}.%{version}
+%setup -q -n %{name}.%{version} -a 1
+%patch0 -p1
 
 %build
+xmkmf
 %{__make}
 
 %install
@@ -51,17 +59,18 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}
 install olvwm $RPM_BUILD_ROOT%{_bindir}
-install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
+install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
+install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
 install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
 
-gzip -9nf README LEGAL_NOTICE NEW_CHANGES CHANGES
+gzip -9nf README LEGAL_NOTICE NEW_CHANGES CHANGES olvwm.info
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz olvwm.info
+%doc *.gz 
+%doc %dir config.examples
 %{_mandir}/man[15]/*
 %attr(755,root,root) %{_bindir}/olvwm
-%{_prefix}/local/openwin/lib/help/olvwm.info

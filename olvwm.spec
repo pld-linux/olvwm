@@ -11,7 +11,9 @@ License:	BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
+# Source0-md5:	21aeb96b94d7cce8ce3dcff13d34716a
 Source1:	%{name}-config.examples.tar.bz2
+# Source1-md5:	bdde57ef48ccc802b62ec510ab14aee2
 Source2:	%{name}.desktop
 Patch0:		%{name}-pld.patch
 BuildRequires:	XFree86-devel

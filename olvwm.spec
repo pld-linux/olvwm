@@ -11,11 +11,11 @@ Source1:	%{name}-config.examples.tar.bz2
 Patch0:		%{name}-pld.patch
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildRequires: XFree86-devel
-BuildRequires: flex
-BuildRequires: xview
-BuildRequires: xview-devel
-BuildRequires: bison
+BuildRequires:	XFree86-devel
+BuildRequires:	flex
+BuildRequires:	xview
+BuildRequires:	xview-devel
+BuildRequires:	bison
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -39,8 +39,8 @@ wersji 3 XView.
 
 OpenLook by³ stylem u¿ywanym na starszych stacjach Suna, zanim Sun
 wycofa³ siê z niego i zacz±³ u¿ywaæ CDE. Szczególmnie uniksowi
-weterani chêtnie pozostaj± przy olvwm jako ¿e przypomina im stare, dobre
-czasy, kiedy byli m³odymi hackerami...
+weterani chêtnie pozostaj± przy olvwm jako ¿e przypomina im stare,
+dobre czasy, kiedy byli m³odymi hackerami...
 
 %prep
 %setup -q -n %{name}.%{version} -a 1
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz 
+%doc *.gz
 %doc %dir config.examples
 %{_mandir}/man[15]/*
 %attr(755,root,root) %{_bindir}/olvwm

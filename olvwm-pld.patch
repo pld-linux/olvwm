@@ -1,0 +1,37 @@
+Binary files olvwm.4.2n.orig/.Imakefile.swp and olvwm.4.2n/.Imakefile.swp differ
+diff -urN olvwm.4.2n.orig/Imakefile olvwm.4.2n/Imakefile
+--- olvwm.4.2n.orig/Imakefile	Tue Apr 25 16:39:18 2000
++++ olvwm.4.2n/Imakefile	Mon Dec 31 10:18:58 2001
+@@ -49,13 +49,13 @@
+ /**/#MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DIDENT
+ 
+ /**/# For a generic Solaris 2.x system, I'd suggest
+-MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DSVR4 -DSYSV -DIDENT -x O4
++/**/# MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DSVR4 -DSYSV -DIDENT -x O4
+ 
+ /**/# Linux/ELF/bsd
+ /**/#MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DXPM -DXVIEW32 -DMAXPID=32768 -I/usr/include/bsd -include /usr/include/bsd/bsd.h -I$(INCROOT)/X11
+ 
+ /**/# Linux/ELF
+-/**/#MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DXPM -DXVIEW32 -DMAXPID=32768 -I$(INCROOT)/X11
++MORECCFLAGS=-DOW_I18N_L3 -DSHAPE -DXPM -DXVIEW32 -DMAXPID=32768 -I$(INCROOT)/X11
+ 
+ /**/#
+ /**/# Set MORELDFLAGS to any link options you want.  Be sure to add -lxpm if you
+@@ -71,6 +71,7 @@
+ /**/# MORELDFLAGS=-lbsd -lXpm
+ MORELDFLAGS=-lXpm
+ SYS_LIBRARIES = -lfl -lm
++OLGXLIB=-lolgx
+ 
+ /**/# No more changes needed
+ 
+@@ -136,7 +137,7 @@
+ 	lex -t parse.l > parse.c
+ 
+ olvwmrc.c: olvwmrc.y
+-	yacc olvwmrc.y
++	bison -y olvwmrc.y
+ 	mv y.tab.c olvwmrc.c
+ 
+ olvwmrc.o: parse.c olvwmrc.c

@@ -15,6 +15,7 @@ Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 Source1:	%{name}-config.examples.tar.bz2
 # Source1-md5:	bdde57ef48ccc802b62ec510ab14aee2
 Source2:	%{name}.desktop
+Source3:        %{name}-xsession.desktop
 Patch0:		%{name}-pld.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	bison
@@ -59,14 +60,17 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5},%{_wmpropsdir}}
-
+install -d \
+	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5},%{_wmpropsdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/xsessions
+	
 install olvwm $RPM_BUILD_ROOT%{_bindir}
 install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
 install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
 install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_wmpropsdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README LEGAL_NOTICE NEW_CHANGES CHANGES olvwm.info
 %doc %dir config.examples
-%{_mandir}/man[15]/*
 %attr(755,root,root) %{_bindir}/olvwm
+%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/%{name}.desktop
+%{_mandir}/man[15]/*

@@ -17,14 +17,14 @@ Source1:	%{name}-config.examples.tar.bz2
 Source2:	%{name}.desktop
 Source3:        %{name}-xsession.desktop
 Patch0:		%{name}-pld.patch
+URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 BuildRequires:	XFree86-devel
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	imake
 BuildRequires:	xview
 BuildRequires:	xview-devel
-URL:		http://www.phys.columbia.edu/~flame/olvwm.html
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
 

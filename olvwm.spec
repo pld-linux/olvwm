@@ -45,9 +45,9 @@ window manager) dostarczanego wraz z XView. Ta wersja olvwm bazuje na
 wersji 3 XView.
 
 OpenLook by³ stylem u¿ywanym na starszych stacjach Suna, zanim Sun
-wycofa³ siê z niego i zacz±³ u¿ywaæ CDE. Szczególmnie uniksowi
-weterani chêtnie pozostaj± przy olvwm jako ¿e przypomina im stare,
-dobre czasy, kiedy byli m³odymi hackerami...
+wycofa³ siê z niego i zacz±³ u¿ywaæ CDE. Nawet, gdy pojawi³y siê nowe,
+niektórzy -- zw³aszcza uniksowi weterani -- chêtnie pozostaj± przy olvwm
+przypominaj±cym im stare, dobre czasy, kiedy byli m³odymi hackerami...
 
 %prep
 %setup -q -n %{name}.%{version} -a 1

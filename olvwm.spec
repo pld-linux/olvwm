@@ -1,15 +1,16 @@
-Summary:	OpenLook Virtual Window Manager.
+Summary:	OpenLook Virtual Window Manager
+Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
 Name:		olvwm
 Version:	4.2n
 Release:	1
-License:	GPL
+License:	some BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
 Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
-Source0:	%{name}.%{version}.src.tar.gz
+Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	olgx
@@ -28,8 +29,19 @@ before Sun discontinued it and started using CDE. Even as new window
 managers emerged some - especially Unix veterans - stick to the olvwm
 as it reminds them of good, old days when they were young hackers...
 
+%description -l pl
+Olvwm (OPEN LOOK virtual window manager) jest zgodnym z ICCCM zarz±dc±
+okien przeznaczonym do toolkitu XView. Wywodzi siê z olwm (OPEN LOOK
+window manager) dostarczanego wraz z XView. Ta wersja olvwm bazuje na
+wersji 3 XView.
+
+OpenLook by³ stylem u¿ywanym na starszych stacjach Suna, zanim Sun
+wycofa³ siê z niego i zacz±³ u¿ywaæ CDE. Szczególmnie uniksowi
+weterani chêtnie pozostaj± przy olvwm jako ¿e przypomina im stare, dobre
+czasy, kiedy byli m³odymi hackerami...
+
 %prep
-%setup -q -n olvwm.4.2n
+%setup -q -n %{name}.%{version}
 
 %build
 %{__make}
@@ -37,22 +49,19 @@ as it reminds them of good, old days when they were young hackers...
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_prefix}/local/openwin/{bin,lib/help}
-install -d $RPM_BUILD_ROOT%{_prefix}/local/man/man{1,5}
-install olvwm $RPM_BUILD_ROOT%{_prefix}/local/openwin/bin
-install olvwm.info $RPM_BUILD_ROOT%{_prefix}/local/openwin/lib/help
-cp olvwmrc.man olvwmrc.5
-cp olwm.man olvwm.1
-install olvwm.1 $RPM_BUILD_ROOT%{_prefix}/local/man/man1
-install olvwmrc.5 $RPM_BUILD_ROOT%{_prefix}/local/man/man5
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}
+install olvwm $RPM_BUILD_ROOT%{_bindir}
+install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
+install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
+
+gzip -9nf README LEGAL_NOTICE NEW_CHANGES CHANGES
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README LEGAL_NOTICE NEW_CHANGES CHANGES
-%attr(644,root,man) %{_prefix}/local/man/man1/olvwm.1
-%attr(644,root,man) %{_prefix}/local/man/man5/olvwmrc.5
-%{_prefix}/local/openwin/bin/olvwm
-%attr(644,root,root) %{_prefix}/local/openwin/lib/help/olvwm.info
+%doc *.gz olvwm.info
+%{_mandir}/man[15]/*
+%attr(755,root,root) %{_bindir}/olvwm
+%{_prefix}/local/openwin/lib/help/olvwm.info

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Open Look Virtual Window Manager
+Exec=olvwm
+TryExec=olvwm
+
+[Window Manager]
+SessionManaged=false
+# vi: encoding=utf-8

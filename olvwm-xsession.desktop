@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=XSession
+Exec=
+TryExec=
+Name=OLVWM
+Comment=The OpenLook Virtual Window Manager, OLWM enhanced for handling of virtual desktops
+Comment[nl]=De OpenLook Virtual Window Manager. OLWM uitgebreid met virtuele bureaubladen
+Comment[sr]=„OpenLook Virtual Window Manager“, OLWM побољшан за управљање виртуелним радним површинама
+Comment[sv]=Open Look virtuell fönsterhanterare, OLWM utökad för att hantera virtuella skrivbord

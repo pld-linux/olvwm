@@ -1,3 +1,7 @@
+#
+# TODO:
+# - add desktop file.
+#
 Summary:	OpenLook Virtual Window Manager
 Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
 Name:		olvwm
@@ -9,14 +13,14 @@ Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 Source1:	%{name}-config.examples.tar.bz2
 Patch0:		%{name}-pld.patch
-URL:		http://www.phys.columbia.edu/~flame/olvwm.html
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	XFree86-devel
+BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	imake
 BuildRequires:	xview
 BuildRequires:	xview-devel
-BuildRequires:	bison
+URL:		http://www.phys.columbia.edu/~flame/olvwm.html
+Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -53,21 +57,19 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}
+
 install olvwm $RPM_BUILD_ROOT%{_bindir}
 install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
 install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
 install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
-
-gzip -9nf README LEGAL_NOTICE NEW_CHANGES CHANGES olvwm.info
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README LEGAL_NOTICE NEW_CHANGES CHANGES olvwm.info
 %doc %dir config.examples
 %{_mandir}/man[15]/*
 %attr(755,root,root) %{_bindir}/olvwm

@@ -6,10 +6,6 @@ Release:	2
 License:	some BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
-Group(de):	X11/Fenstermanager
-Group(es):	X11/Administraadores De Ventanas
-Group(fr):	X11/Gestionnaires De Fenêtres
-Group(pl):	X11/Zarz±dcy Okien
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 Source1:	%{name}-config.examples.tar.bz2
 Patch0:		%{name}-pld.patch

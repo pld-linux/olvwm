@@ -6,12 +6,13 @@ Summary:	OpenLook Virtual Window Manager
 Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
 Name:		olvwm
 Version:	4.2n
-Release:	2
+Release:	3
 License:	some BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 Source1:	%{name}-config.examples.tar.bz2
+Source2:        %{name}.desktop
 Patch0:		%{name}-pld.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	bison
@@ -25,6 +26,7 @@ Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_wmpropsdir	%{_datadir}/wm-properties
 
 %description
 Olvwm (OPEN LOOK virtual window manager) is an ICCCM compliant window
@@ -58,12 +60,14 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5},%{_wmpropsdir}}
 
 install olvwm $RPM_BUILD_ROOT%{_bindir}
 install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
 install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
 install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
+
+install %{SOURCE2} $RPM_BUILD_ROOT%{_wmpropsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,3 +78,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc %dir config.examples
 %{_mandir}/man[15]/*
 %attr(755,root,root) %{_bindir}/olvwm
+%{_wmpropsdir}/%{name}.desktop

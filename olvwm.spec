@@ -6,8 +6,8 @@ Summary:	OpenLook Virtual Window Manager
 Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
 Name:		olvwm
 Version:	4.2n
-Release:	3
-License:	some BSD-like (see LEGAL_NOTICE)
+Release:	4
+License:	BSD-like (see LEGAL_NOTICE)
 Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz

@@ -23,7 +23,7 @@ BuildRequires:	xview-devel
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wmpropsdir	%{_datadir}/wm-properties
+%define		_wmpropsdir	/usr/share/wm-properties
 
 %description
 Olvwm (OPEN LOOK virtual window manager) is an ICCCM compliant window

@@ -20,7 +20,6 @@ BuildRequires:	flex
 BuildRequires:	imake
 BuildRequires:	xview
 BuildRequires:	xview-devel
-BuildRequires:	xview-static
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

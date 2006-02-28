@@ -8,14 +8,13 @@ Name:		olvwm
 Version:	4.2n
 Release:	4
 License:	BSD-like (see LEGAL_NOTICE)
-Vendor:		JaeSub Hong
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
 # Source0-md5:	21aeb96b94d7cce8ce3dcff13d34716a
 Source1:	%{name}-config.examples.tar.bz2
 # Source1-md5:	bdde57ef48ccc802b62ec510ab14aee2
 Source2:	%{name}.desktop
-Source3:        %{name}-xsession.desktop
+Source3:	%{name}-xsession.desktop
 Patch0:		%{name}-pld.patch
 URL:		http://www.phys.columbia.edu/~flame/olvwm.html
 BuildRequires:	XFree86-devel
@@ -63,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d \
 	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5},%{_wmpropsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/xsessions
-	
+
 install olvwm $RPM_BUILD_ROOT%{_bindir}
 install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
 install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1

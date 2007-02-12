@@ -3,7 +3,7 @@
 # - add desktop file.
 #
 Summary:	OpenLook Virtual Window Manager
-Summary(pl):	OpenLook Virtual Window Manager - Wirtualny Zarz±dca Okien
+Summary(pl.UTF-8):   OpenLook Virtual Window Manager - Wirtualny ZarzÄ…dca Okien
 Name:		olvwm
 Version:	4.2n
 Release:	4
@@ -38,16 +38,16 @@ before Sun discontinued it and started using CDE. Even as new window
 managers emerged some - especially Unix veterans - stick to the olvwm
 as it reminds them of good, old days when they were young hackers...
 
-%description -l pl
-Olvwm (OPEN LOOK virtual window manager) jest zgodnym z ICCCM zarz±dc±
-okien przeznaczonym do toolkitu XView. Wywodzi siê z olwm (OPEN LOOK
+%description -l pl.UTF-8
+Olvwm (OPEN LOOK virtual window manager) jest zgodnym z ICCCM zarzÄ…dcÄ…
+okien przeznaczonym do toolkitu XView. Wywodzi siÄ™ z olwm (OPEN LOOK
 window manager) dostarczanego wraz z XView. Ta wersja olvwm bazuje na
 wersji 3 XView.
 
-OpenLook by³ stylem u¿ywanym na starszych stacjach Suna, zanim Sun
-wycofa³ siê z niego i zacz±³ u¿ywaæ CDE. Nawet, gdy pojawi³y siê nowe,
-niektórzy -- zw³aszcza uniksowi weterani -- chêtnie pozostaj± przy olvwm
-przypominaj±cym im stare, dobre czasy, kiedy byli m³odymi hackerami...
+OpenLook byÅ‚ stylem uÅ¼ywanym na starszych stacjach Suna, zanim Sun
+wycofaÅ‚ siÄ™ z niego i zaczÄ…Å‚ uÅ¼ywaÄ‡ CDE. Nawet, gdy pojawiÅ‚y siÄ™ nowe,
+niektÃ³rzy -- zwÅ‚aszcza uniksowi weterani -- chÄ™tnie pozostajÄ… przy olvwm
+przypominajÄ…cym im stare, dobre czasy, kiedy byli mÅ‚odymi hackerami...
 
 %prep
 %setup -q -n %{name}.%{version} -a 1

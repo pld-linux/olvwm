@@ -3,7 +3,7 @@
 # - add desktop file.
 #
 Summary:	OpenLook Virtual Window Manager
-Summary(pl.UTF-8):   OpenLook Virtual Window Manager - Wirtualny Zarządca Okien
+Summary(pl.UTF-8):	OpenLook Virtual Window Manager - Wirtualny Zarządca Okien
 Name:		olvwm
 Version:	4.2n
 Release:	4

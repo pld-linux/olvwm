@@ -6,7 +6,7 @@ Summary:	OpenLook Virtual Window Manager
 Summary(pl.UTF-8):	OpenLook Virtual Window Manager - Wirtualny Zarządca Okien
 Name:		olvwm
 Version:	4.2n
-Release:	4
+Release:	5
 License:	BSD-like (see LEGAL_NOTICE)
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
@@ -23,9 +23,10 @@ BuildRequires:	flex
 BuildRequires:	imake
 BuildRequires:	xview
 BuildRequires:	xview-devel
+Conflicts:	filesystem < 3.0-20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wmpropsdir	/usr/share/wm-properties
+%define		_wmpropsdir	/usr/share/gnome/wm-properties
 
 %description
 Olvwm (OPEN LOOK virtual window manager) is an ICCCM compliant window

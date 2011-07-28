@@ -2,11 +2,15 @@
 # TODO:
 # - add desktop file.
 #
+#
+# Conditional build:
+%bcond_with	gnome2		# build with support for GNOME2 wm-properties
+#
 Summary:	OpenLook Virtual Window Manager
 Summary(pl.UTF-8):	OpenLook Virtual Window Manager - Wirtualny Zarządca Okien
 Name:		olvwm
 Version:	4.2n
-Release:	5
+Release:	6
 License:	BSD-like (see LEGAL_NOTICE)
 Group:		X11/Window Managers
 Source0:	http://www.phys.columbia.edu/~flame/files/%{name}.%{version}.src.tar.gz
@@ -69,7 +73,7 @@ install olwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olwm.1
 install olvwm.man $RPM_BUILD_ROOT%{_mandir}/man1/olvwm.1
 install olvwmrc.man $RPM_BUILD_ROOT%{_mandir}/man5/olvwmrc.5
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_wmpropsdir}
+%{?with_gnome2:install %{SOURCE2} $RPM_BUILD_ROOT%{_wmpropsdir}}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
@@ -81,5 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc %dir config.examples
 %attr(755,root,root) %{_bindir}/olvwm
 %{_datadir}/xsessions/%{name}.desktop
-%{_wmpropsdir}/%{name}.desktop
+%{?with_gnome2:%{_wmpropsdir}/%{name}.desktop}
 %{_mandir}/man[15]/*

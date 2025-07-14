@@ -56,7 +56,7 @@ przypominającym im stare, dobre czasy, kiedy byli młodymi hackerami...
 
 %prep
 %setup -q -n %{name}.%{version} -a 1
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 xmkmf
